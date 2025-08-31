@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #111111;
+  --color-surface: #1a1a1a;
+  --color-primary: #ffffff;
+  --color-secondary: #cccccc;
+  --color-muted: #888888;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, monospace;
+}
+
+body {
+  @apply bg-background text-secondary font-sans;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for a retro feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
+
+@layer utilities {
+  @keyframes background-pan {
+    from {
+      background-position: 0% center;
+    }
+    to {
+      background-position: -200% center;
+    }
+  }
+  .animate-background-pan {
+    animation: background-pan 15s linear infinite;
+  }
+  
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+}
+
+.cube {
+  animation: rotate-cube 20s linear infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes rotate-cube {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@keyframes aurora-glow {
+  0%, 100% {
+    transform: translate(-20%, -20%) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(20%, 20%) scale(1.2);
+    opacity: 0.5;
+  }
+}
