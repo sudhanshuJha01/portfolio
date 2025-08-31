@@ -9,11 +9,7 @@ const Hero = () => {
   return (
     <section id="home" className="relative flex items-center min-h-screen overflow-hidden bg-background">
       
-      {/* New Aurora Glow Background Effect */}
-      <div 
-        className="absolute top-0 left-0 w-full h-full z-0"
-        style={{ pointerEvents: 'none' }}
-      >
+      <div className="absolute top-0 left-0 w-full h-full z-0" style={{ pointerEvents: 'none' }}>
         <div 
           className="absolute w-[50rem] h-[50rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/30"
           style={{ 
@@ -23,7 +19,6 @@ const Hero = () => {
         />
       </div>
 
-      {/* Brighter, more highlighted grid */}
       <div 
         className="absolute inset-0 z-0 opacity-30"
         style={{
@@ -33,15 +28,11 @@ const Hero = () => {
         }}
       />
       
-      <style>
-        {`@keyframes pan-grid { from { background-position: 0 0; } to { background-position: -40px -40px; } }`}
-      </style>
+      <style>{`@keyframes pan-grid { from { background-position: 0 0; } to { background-position: -40px -40px; } }`}</style>
       
       <div className="relative z-10 max-w-5xl mx-auto px-4 py-24 w-full">
-        {/* Responsive Grid: 2 columns on desktop, 1 on mobile */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           
-          {/* Left Column: Text Content */}
           <div className="text-center md:text-left">
             <h1 className="text-4xl md:text-6xl font-bold text-primary font-sans mb-3 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Sudhanshu Jha
@@ -55,40 +46,23 @@ const Hero = () => {
               Final-year B.Tech student at DTU specializing in scalable backend systems and passionate about turning complex problems into elegant software solutions.
             </p>
 
-            {/* Updated Call-to-Action Buttons */}
             <div className="flex flex-wrap justify-center md:justify-start gap-4 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-              <a 
-                href="https://github.com/sudhanshuJha01" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-5 py-3 bg-primary text-background font-bold rounded-md hover:bg-opacity-90 transition-all duration-300"
-              >
+              <a href="https://github.com/sudhanshuJha01" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-5 py-3 bg-primary text-background font-bold rounded-md hover:bg-opacity-90 transition-all duration-300">
                 <FaGithub className="mr-2" /> View on GitHub
               </a>
-              <a 
-                href="https://drive.google.com/file/d/11zz1j7oDQpDaZiUqVwWZlRi42MdLf0Ap/view" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-5 py-3 bg-surface border border-surface text-secondary hover:text-primary hover:border-primary rounded-md transition-all duration-300"
-              >
+              <a href="https://drive.google.com/file/d/11zz1j7oDQpDaZiUqVwWZlRi42MdLf0Ap/view" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-5 py-3 bg-surface border border-surface text-secondary hover:text-primary hover:border-primary rounded-md transition-all duration-300">
                 <FaFilePdf className="mr-2" /> Download Resume
               </a>
             </div>
 
-            {/* New Social Links Icons */}
             <div className="flex justify-center md:justify-start gap-6 mt-8 animate-fade-in-up" style={{ animationDelay: '1s' }}>
-              <a href="https://www.linkedin.com/in/sudhanshujha01/" target="_blank" rel="noopener noreferrer" className="text-2xl text-muted hover:text-primary transition-all duration-300 hover:scale-110">
-                <FaLinkedin />
-              </a>
-              <a href="mailto:sudhanshujha883@gmail.com" className="text-2xl text-muted hover:text-primary transition-all duration-300 hover:scale-110">
-                <FaEnvelope />
-              </a>
+              <a href="https://www.linkedin.com/in/sudhanshujha01/" target="_blank" rel="noopener noreferrer" className="text-2xl text-muted hover:text-primary transition-all duration-300 hover:scale-110"><FaLinkedin /></a>
+              <a href="mailto:sudhanshujha883@gmail.com" className="text-2xl text-muted hover:text-primary transition-all duration-300 hover:scale-110"><FaEnvelope /></a>
             </div>
-
           </div>
 
-          {/* Right Column: 3D Animated Cube */}
-          <div className="flex items-center justify-center h-full">
+          {/* This container is now hidden on mobile and shown on medium screens and up */}
+          <div className="hidden md:flex items-center justify-center h-full">
             <div className="w-64 h-64 perspective-1000">
               <div className="relative w-full h-full cube">
                 <CubeFace position="front"><SiReact /></CubeFace>
@@ -107,7 +81,7 @@ const Hero = () => {
   );
 };
 
-// Helper component for the faces of the cube
+// The CubeFace component no longer needs responsive classes, so we can simplify it
 const CubeFace = ({ children, position }) => {
   const getTransform = () => {
     switch (position) {
@@ -131,10 +105,14 @@ const CubeFace = ({ children, position }) => {
   );
 };
 
-const PerspectiveStyles = () => (
-  <style>
-    {`.perspective-1000 { perspective: 1000px; }`}
-  </style>
-);
+const PerspectiveStyles = () => (<style>{`.perspective-1000 { perspective: 1000px; }`}</style>);
 
 export default Hero;
+
+
+
+
+
+
+
+

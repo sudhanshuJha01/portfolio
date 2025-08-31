@@ -1,11 +1,12 @@
 import React from "react";
 import SectionHeader from "./SectionHeader";
+import ScrollFadeIn from "./ScrollFadeIn";
 
 const experiences = [
   {
     role: "Backend Intern",
     company: "Kaagazz",
-    period: "Jun 2025 - Present",
+    period: "May 2025 - Present",
     responsibilities: [
       "Built a secure, OTP-based passwordless authentication system.",
       "Implemented rate limiting and security best practices against common threats.",
@@ -19,22 +20,24 @@ const experiences = [
 const Experience = () => {
   return (
     <section id="experience" className="py-20">
-      <div className="container mx-auto px-4">
-        <SectionHeader title="Experience" />
-        <div className="max-w-3xl mx-auto">
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative pl-8 py-4 border-l-2 border-surface">
-              <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-5 border-4 border-background"></div>
-              <h3 className="text-xl font-bold text-primary font-sans">{exp.role}</h3>
-              <p className="text-md text-secondary mb-1">{exp.company}</p>
-              <p className="text-sm text-muted mb-4">{exp.period}</p>
-              <ul className="list-disc list-inside text-secondary space-y-2 text-sm">
-                {exp.responsibilities.map((item, idx) => <li key={idx}>{item}</li>)}
-              </ul>
-            </div>
-          ))}
+      <ScrollFadeIn>
+        <div className="container mx-auto px-4">
+          <SectionHeader title="Experience" />
+          <div className="max-w-3xl mx-auto">
+            {experiences.map((exp, index) => (
+              <div key={index} className="relative pl-8 py-4 border-l-2 border-surface">
+                <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-5 border-4 border-background"></div>
+                <h3 className="text-xl font-bold text-primary font-sans">{exp.role}</h3>
+                <p className="text-md text-secondary mb-1 font-sans">{exp.company}</p>
+                <p className="text-sm text-muted mb-4">{exp.period}</p>
+                <ul className="list-disc list-inside text-secondary space-y-2 text-sm font-sans">
+                  {exp.responsibilities.map((item, idx) => <li key={idx}>{item}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </ScrollFadeIn>
     </section>
   );
 };
